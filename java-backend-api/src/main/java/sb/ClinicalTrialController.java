@@ -29,11 +29,6 @@ public class ClinicalTrialController {
 
     @RequestMapping("/")
     public String index() {
-        return "Hello from ClinicalTrials API!";
-    }
-
-    @RequestMapping("/clinicaltrial")
-    public ClinicalTrial[] getAllTrials() {
-        return trials.toArray(new ClinicalTrial[trials.size()]);
+        return "Welcome to the ClinicalTrials API interview challenge!";
     }
 }
