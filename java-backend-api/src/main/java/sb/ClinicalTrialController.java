@@ -1,6 +1,7 @@
 package sb;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.ZonedDateTime;
@@ -25,14 +26,19 @@ public class ClinicalTrialController {
                 "III", d));
     }
 
-    ;
 
-    @RequestMapping("/")
+
+    @GetMapping("/")
     public String index() {
         return "Hello from ClinicalTrials API!";
     }
 
-    @RequestMapping("/clinicaltrial")
+    @GetMapping("/clinicaltrial/{id}/")
+    public ClinicalTrial getTrialById(@PathVariable String id) {
+        return new ClinicalTrial();
+    }
+
+    @GetMapping("/clinicaltrial")
     public ClinicalTrial[] getAllTrials() {
         return trials.toArray(new ClinicalTrial[trials.size()]);
     }
