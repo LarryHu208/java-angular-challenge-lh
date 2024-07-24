@@ -11,46 +11,51 @@ The expectation is to implement CRUD operations within the backend, integrate wi
 ## Instructions
 
 * Clone this repository somewhere on your local machine.
-* The `data` directory contains mock data that you can use to load your local database instance with, otherwise it will be used by the Docker container to populate a Postgres instance.
 * The `java-backend-api` directory is a partial implementation of our clinical trials REST API. More functionality will be added to this over the course of the interview.
 
 ## Getting ready for the interview
 
 ### Pre-requisites
 
+For the backend section this challenge, you will need the following:
+
 * Maven 3
-* Java 8 or above
-* Docker (needed only if you choose to use the Postgres container provided)
+* Java 17 or above
+* A database client of your choosing (or familiarity with the H2 Console)
+* an API Client (Postman, Bruno, etc)
+
+For the angular section of this challenge, you will need the following:
+
 * Latest stable version of Node
 * Angular-CLI for the frontend section of our challenge
 
-### Building the application
+### Building the java application
 
 The application can be built quickly using the following:
 
 * `cd java-backend-api`
 * `mvn package`
 
-### Running the application
+### Running the java application
 
 Once the application is build, the following will run the backend API locally:
 
 * `cd java-backend-api`
 * `java -jar target/java-backend-api-0.1.0.jar`
 
+The application should also be runnable from your IDE.
+
 ### Accessing the API
 
 Throughout the interview, you may be asked to request data from the now running API endpoints. Later, you will use these within the Angular frontend.
 
 * `http://localhost:8080` (Application health check)
+* `http://localhost:8080/clinicaltrial/{nctId}` (Specific clinical trial)
 * `http://localhost:8080/clinicaltrial` (List of clinical trials)
 
 ### Setting up the database
 
-You have the option to load the data file locally, or use the provided Postgres container. Either way, the default database port is typically 5432 with the username `postgres` and password set to `password`. The database will then have the data loaded into the `clinical_trial` table on the public schema.
-
-* `psql -U <username> -d <dbname> -f ./data/data.sql`
-* Optionally, `cd data && docker-compose up`
+The data for this challenge is stored in an H2 database. A data.sql file to load the data has been provided in the resources directory.
 
 ### Create an Angular frontend
 
