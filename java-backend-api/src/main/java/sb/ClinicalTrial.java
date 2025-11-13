@@ -1,19 +1,32 @@
 package sb;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
+@Table(name = "clinical_trial")
 public class ClinicalTrial implements Serializable {
 
     private static final long serialVersionUID = -7788619177798333712L;
 
+    @Id
+    @Column(name = "nct_id")
     private String nctId;
+
+    @Column(name="official_title")
     private String officialTitle;
+
+    @Column(name="phase")
     private String phase;
 
+    @Column(name=",primary_completion_date")
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="GMT")
     private Date primaryCompletionDate;
 
