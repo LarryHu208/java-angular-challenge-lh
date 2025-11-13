@@ -26,8 +26,10 @@ public class ClinicalTrial implements Serializable {
     @Column(name="phase")
     private String phase;
 
-    @Column(name=",primary_completion_date")
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="GMT")
+    @Column(name="primary_completion_date")
+    @JsonFormat(shape=JsonFormat.Shape.STRING,
+            pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+            timezone="GMT")
     private Date primaryCompletionDate;
 
     public ClinicalTrial(){
