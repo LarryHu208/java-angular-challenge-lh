@@ -1,4 +1,4 @@
-package sb;
+package sb.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
