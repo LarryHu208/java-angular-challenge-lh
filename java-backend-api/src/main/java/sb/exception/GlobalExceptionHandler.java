@@ -1,4 +1,4 @@
-package sb;
+package sb.exception;
 
 
 import org.springframework.http.HttpStatus;
